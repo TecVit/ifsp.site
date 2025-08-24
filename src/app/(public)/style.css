@@ -1,0 +1,94 @@
+.container-auth {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+}
+
+.container-auth .content-auth {
+    width: var(--porcent-width);
+    max-width: var(--max-width);
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+}
+
+.container-auth .content-auth .form {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    padding: 35px 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 8px solid var(--green-light);
+}
+
+.container-auth .content-auth .form img {
+    width: 150px;
+    height: auto;
+    margin: 0px auto 25px auto;
+}
+
+.container-auth .content-auth .form h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0px 0px 4px 0px;
+}
+
+.container-auth .content-auth .form p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--gray-black);
+    margin: 0px;
+}
+
+.container-auth .content-auth .form .input {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.container-auth .content-auth .form .input label {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px 0px 6px 0px;
+}
+
+.container-auth .content-auth .form .input input {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    background: transparent;
+    background: var(--background);
+    border: 2px solid var(--gray);
+    color: var(--black);
+    padding: 12.5px;
+}
+
+.container-auth .content-auth .form button {
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--green);
+    color: var(--white);
+    cursor: pointer;
+    transition: all .15s ease-in;
+} .container-auth .content-auth .form button:hover,
+.container-auth .content-auth .form button:focus {
+    background: var(--green-light);
+}

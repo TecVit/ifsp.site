@@ -1,0 +1,114 @@
+.container-dashboard {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background);
+}
+
+.container-dashboard .content-dashboard {
+    width: var(--porcent-width);
+    max-width: var(--max-width);
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    position: relative;
+}
+
+/* Points */
+.container-dashboard .content-dashboard .points {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--white);
+    border: 2px solid var(--gray);
+    color: var(--black);
+    z-index: 9999;
+}
+
+.container-dashboard .content-dashboard .points h1 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Forms */
+.container-dashboard .content-dashboard .form {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 8px solid var(--green-light);
+}
+
+.container-dashboard .content-dashboard .form img {
+    width: 100px;
+    height: auto;
+    margin: 0px auto 25px auto;
+}
+
+.container-dashboard .content-dashboard .form h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0px 0px 4px 0px;
+}
+
+.container-dashboard .content-dashboard .form h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 20px 0px 00px 0px;
+} .container-dashboard .content-dashboard .form h2 strong {
+    font-weight: 600;
+    color: var(--green);
+}
+
+.container-dashboard .content-dashboard .form p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--gray-black);
+    margin: 0px;
+}
+
+/* Table */
+.container-dashboard .content-dashboard .form table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    text-align: left;
+    margin: 15px 0px;
+}
+
+.container-dashboard .content-dashboard .form table thead tr th {
+    background: var(--green-light);
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.container-dashboard .content-dashboard .form table tbody tr {
+    background: var(--white);
+}.container-dashboard .content-dashboard .form table tbody tr:nth-child(even) {
+    background: var(--background);
+}
+
+.container-dashboard .content-dashboard .form table tbody tr td {
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--back);
+    text-transform: capitalize;
+} 
