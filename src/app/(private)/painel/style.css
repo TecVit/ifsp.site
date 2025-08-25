@@ -62,13 +62,13 @@
 .container-dashboard .content-dashboard .form h1 {
     font-size: 20px;
     font-weight: 500;
-    margin: 0px 0px 4px 0px;
+    margin: 0px 0px 8px 0px;
 }
 
 .container-dashboard .content-dashboard .form h2 {
     font-size: 18px;
     font-weight: 400;
-    margin: 20px 0px 00px 0px;
+    margin: 20px 0px 0px 0px;
 } .container-dashboard .content-dashboard .form h2 strong {
     font-weight: 600;
     color: var(--green);
@@ -107,7 +107,10 @@
 .container-dashboard .content-dashboard .form .input label {
     font-size: 15px;
     font-weight: 400;
-    margin: 0px 0px 6px 0px;
+    margin: 0px 0px 8px 2px;
+} .container-dashboard .content-dashboard .form .input label span {
+    font-size: 13px;
+    color: var(--blue);
 }
 
 .container-dashboard .content-dashboard .form .input input {

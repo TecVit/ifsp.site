@@ -72,6 +72,7 @@ export default function Desafio() {
   }, [refreshUser]);
   
   interface Question {
+    points: number;
     uuid: string;
     question: string;
     example?: string;
@@ -156,7 +157,8 @@ export default function Desafio() {
         <div className="form">
           <Image src={Logo} alt="Logo" />
 
-          <h1>Desafio de Cyber Segurança</h1>
+          <h2 style={{ margin: '0px 0px 8px 0px' }}>Olá, {user?.nome} 👋</h2>
+          <h1>Bem-Vindo ao Desafio de Cyber Segurança</h1>
           <p>Teste seus conhecimentos em segurança digital e descubra se você tem a habilidade para invadir e proteger sistemas de forma ética!</p>
 
           <h2>Tempo Restante: <strong>{remainingTime}</strong></h2>
@@ -166,7 +168,7 @@ export default function Desafio() {
           {questions.length > 0 ? (
             questions.map((question, i) => (
               <div key={i} className="input">
-                <label>{question.question}</label>
+                <label>{question.question} <span>({question.points} Pontos)</span></label>
                 
                 {answersCorrects && answersCorrects[question.uuid] ? (
                   <>

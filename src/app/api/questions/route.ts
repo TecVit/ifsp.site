@@ -13,6 +13,8 @@ export async function GET() {
         ...doc.data(),
     }));
 
+    questions.sort((a, b) => Number(a.uuid) - Number(b.uuid));
+
     if (questions.length === 0) {
         return NextResponse.json({
             status: 404,
