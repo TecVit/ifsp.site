@@ -8,16 +8,25 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     const body = await req.json();
     const { token } = body;
-
-    const tokenDecoded = JSON.parse(xorDecode(token, process.env.base64_key!)) || null;
-
-    if (!tokenDecoded) {
+    
+    if (!token) {
         return NextResponse.json({
             status: 400,
-            message: "Informação do usuário não encontrada!",
+            message: "Token do usuário não fornecido!",
         }, { status: 400 });
     }
 
+    let tokenDecoded;
+
+    try {
+        tokenDecoded = JSON.parse(xorDecode(token, process.env.base64_key!)) || null;
+    } catch {
+        return NextResponse.json({
+            status: 400,
+            message: "Informação do usuário não encontrada!",
+        }, { status: 400 });    
+    }
+    
     const userRef = doc(db, "users", tokenDecoded.prontuario);
     const snapshot = await getDoc(userRef);
 

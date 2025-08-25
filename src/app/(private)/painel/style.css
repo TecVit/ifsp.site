@@ -16,7 +16,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 35px;
+    padding: 35px 0px;
     position: relative;
 }
 
@@ -72,6 +72,19 @@
 } .container-dashboard .content-dashboard .form h2 strong {
     font-weight: 600;
     color: var(--green);
+}
+
+.container-dashboard .content-dashboard .form h3 {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 20px 0px 0px 0px;
+} .container-dashboard .content-dashboard .form h3 a {
+    font-weight: 600;
+    color: var(--blue);
+    transition: all .1s ease-in-out;
+} .container-dashboard .content-dashboard .form h3 a:hover,
+.container-dashboard .content-dashboard .form h3 a:focus {
+    text-decoration: underline;
 }
 
 .container-dashboard .content-dashboard .form p {

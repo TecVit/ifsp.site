@@ -1,6 +1,6 @@
 'use client';
 
-import './style.css'
+import '../pages.css'
 import Image from "next/image"
 import Logo from '@/assets/images/logo.png'
 import { useState } from "react"
@@ -48,7 +48,7 @@ export default function Auth() {
       notifySuccess("Aviso", `Bem-Vindo(a), ${data.user.nome}`);
       
       setTimeout(() => {
-        window.location.href = "/desafio";
+        window.location.href = "/painel";
       }, 2000);
 
     } catch (error) {

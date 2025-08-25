@@ -1,44 +1,51 @@
 // api/register-questions/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/utils/firebase/config"; // ajuste se necessário
-import { doc, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore";
 import { xorEncode } from "@/utils/functions";
 
 const questions = [
   {
+    uuid: "6ee72fc6-ea0d-46e4-a27a-d670d1328b1a",
+    question: "(Netflix) Qual o nome da vítima?",
+    example: "Dica: J**n D**",
+    answer: "John Doe",
+    points: 25,
+  },
+  {
     uuid: "2173108b-320a-4885-a65e-3aea09aea7d7",
-    question: "Identifique o e-mail do atacante",
-    example: "Dica: ***c***e@***********",
-    answer: "atacante@example.com",
-    points: 100,
+    question: "(Netflix) Identifique o e-mail da vítima",
+    example: "Dica: j*****e@g***l.**m",
+    answer: "johndoe@gmail.com",
+    points: 25,
   },
   {
-    uuid: "a1b2c3d4-5678-9101-1121-314151617181",
-    question: "Qual é o nome do atacante",
-    example: "",
-    answer: "João Silva",
-    points: 100,
+    uuid: "60f3117c-0ac4-4d04-82b0-939098610aad",
+    question: "(Netflix) Qual o domínio utilizado pelo atacante?",
+    example: "Dica: n**f**i*x.com",
+    answer: "netfliixx.com",
+    points: 50,
   },
   {
-    uuid: "b2c3d4e5-6789-1011-1213-141516171819",
-    question: "Identifique o link suspeito presente no e-mail",
-    example: "",
-    answer: "http://seguranca-banco.fake",
-    points: 100,
+    uuid: "d5b44379-24ca-4d39-a312-1152fd5f7e2c",
+    question: "(Instagram) Qual a url utilizada para garantir a segurança da conta?",
+    example: "Dica: https://i******ram.**/s****it*-***o***",
+    answer: "https://iinstagram.co/security-account",
+    points: 50,
   },
   {
-    uuid: "c3d4e5f6-7891-0111-2131-415161718192",
-    question: "Qual seria a ação correta diante desse e-mail",
-    example: "",
-    answer: "Reportar ao setor de TI",
-    points: 100,
+    uuid: "37d9ecce-d419-4650-bb3b-fc6e181bd5d1",
+    question: "(Instagram) Qual o sobrenome da vítima?",
+    example: "Dica: M*******",
+    answer: "Margaret",
+    points: 50,
   },
   {
-    uuid: "d4e5f6g7-8910-1112-1314-151617181920",
-    question: "Indique uma palavra ou frase que mostre que o e-mail é falso",
-    example: "",
-    answer: "Clique aqui para atualizar seus dados",
-    points: 100,
+    uuid: "dc73e2a0-32e0-47f1-93cf-19f857edeefc",
+    question: "(Instagram) Qual o suposto país em que foi acessado a conta da vítima?",
+    example: "Dica: T*****n*",
+    answer: "Thailand",
+    points: 50,
   },
 ];
 
@@ -53,10 +60,18 @@ export async function GET(req: NextRequest) {
     }, { status: 500 });
   }
 
+  const snapshot = await getDocs(collection(db, "questions"));
+  
+  snapshot.forEach(async (d) => {
+    await deleteDoc(doc(db, "questions", d.id));
+  });
+
   try {
     for (const q of questions) {
       const answerEncoded = xorEncode(q.answer, process.env.base64_key!);
+      
       const questionRef = doc(db, "questions", q.uuid);
+      
       await setDoc(questionRef, {
         question: q.question,
         example: q.example,

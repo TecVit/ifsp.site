@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 import { notifyError, notifySuccess } from '@/utils/toastify';
 import { clearCookies, getCookie, setCookie } from '@/utils/cookies';
 import { calcularTempoRestante, minutosParaHHMMSS } from '@/utils/functions';
+import Link from 'next/link';
+
+const LINK_DRIVE = 'https://drive.google.com/drive/folders/1naNyGBUTi8dh_gnaerE-97RVLi_gMB1i?usp=sharing';
 
 export default function Desafio() {
 
@@ -20,7 +23,7 @@ export default function Desafio() {
 
     const getDataUser = async () => {
       try {
-        const token = getCookie("token");
+        const token = getCookie("token") || "";
 
         const response = await fetch("/api/user", {
           method: "POST",
@@ -29,7 +32,7 @@ export default function Desafio() {
 
         const data = await response.json();
 
-        if (!data.user) {
+        if (!data || !data.user) {
           notifyError("Aviso", data.message);
           clearCookies();
           window.location.href = "/";
@@ -154,6 +157,8 @@ export default function Desafio() {
 
           <h2>Tempo Restante: <strong>{remainingTime}</strong></h2>
 
+          <h3>Link dos e-mails: <Link target='_blank' href={LINK_DRIVE}>Ir para o Google Drive</Link></h3>
+          
           {questions.length > 0 ? (
             questions.map((question, i) => (
               <div key={i} className="input">

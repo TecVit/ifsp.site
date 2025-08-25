@@ -19,7 +19,6 @@ export async function GET(req: NextRequest) {
     for (const aluno of alunos) {
       const ref = doc(db, "users", aluno.prontuario);
 
-      // Deleta caso já exista
       await deleteDoc(ref);
 
       // Cria do zero

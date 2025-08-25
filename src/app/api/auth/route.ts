@@ -7,6 +7,20 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { uid } = body;
 
+    const configRef = doc(db, "config", "auth");
+    const snapshotConfig = await getDoc(configRef);
+
+    if (snapshotConfig.exists()) {
+        const { access } = snapshotConfig.data();
+
+        if (!access) {
+            return NextResponse.json({
+                status: 404,
+                message: `Não está permitido a entrada no desafio ainda!`,
+            }, { status: 404 });
+        }
+    }
+
     const userRef = doc(db, "users", uid);
     let snapshot = await getDoc(userRef);
 

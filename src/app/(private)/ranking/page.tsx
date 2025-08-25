@@ -50,7 +50,7 @@ export default function Ranking() {
             <table className="ranking-table">
               <thead>
                 <tr>
-                  <th>Classificação</th>
+                  <th>#</th>
                   <th>Nome</th>
                   <th>Pontos</th>
                 </tr>

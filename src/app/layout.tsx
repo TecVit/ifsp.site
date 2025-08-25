@@ -9,8 +9,8 @@ const fontCustom = Arimo({
 });
 
 export const metadata: Metadata = {
-  title: "IFSP Araraquara",
-  description: "Website criado por Vitor Silva",
+  title: "Desafio de Cyber Segurança",
+  description: "Site criado por Vitor Silva. 0__0",
 };
 
 export default function RootLayout({
