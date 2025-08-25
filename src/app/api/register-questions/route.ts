@@ -6,42 +6,42 @@ import { xorEncode } from "@/utils/functions";
 
 const questions = [
   {
-    uuid: "6ee72fc6-ea0d-46e4-a27a-d670d1328b1a",
+    uuid: "1",
     question: "(Netflix) Qual o nome da vítima?",
     example: "Dica: J**n D**",
     answer: "John Doe",
     points: 25,
   },
   {
-    uuid: "2173108b-320a-4885-a65e-3aea09aea7d7",
+    uuid: "2",
     question: "(Netflix) Identifique o e-mail da vítima",
     example: "Dica: j*****e@g***l.**m",
     answer: "johndoe@gmail.com",
     points: 25,
   },
   {
-    uuid: "60f3117c-0ac4-4d04-82b0-939098610aad",
+    uuid: "3",
     question: "(Netflix) Qual o domínio utilizado pelo atacante?",
     example: "Dica: n**f**i*x.com",
     answer: "netfliixx.com",
     points: 50,
   },
   {
-    uuid: "d5b44379-24ca-4d39-a312-1152fd5f7e2c",
+    uuid: "4",
     question: "(Instagram) Qual a url utilizada para garantir a segurança da conta?",
     example: "Dica: https://i******ram.**/s****it*-***o***",
     answer: "https://iinstagram.co/security-account",
     points: 50,
   },
   {
-    uuid: "37d9ecce-d419-4650-bb3b-fc6e181bd5d1",
+    uuid: "5",
     question: "(Instagram) Qual o sobrenome da vítima?",
     example: "Dica: M*******",
     answer: "Margaret",
     points: 50,
   },
   {
-    uuid: "dc73e2a0-32e0-47f1-93cf-19f857edeefc",
+    uuid: "6",
     question: "(Instagram) Qual o suposto país em que foi acessado a conta da vítima?",
     example: "Dica: T*****n*",
     answer: "Thailand",

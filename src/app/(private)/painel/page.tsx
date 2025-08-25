@@ -106,10 +106,12 @@ export default function Desafio() {
     getQuestions();
   }, []);
 
+  const [loadingAnswer, setLoadingAnswer] = useState('');
   const [answers, setAnswers] = useState<{ [key: string]: string }>({});
   const [points, setPoints] = useState<number>(0);
 
   const verifyAnswer = async (uuid: string, answer: any) => {
+    setLoadingAnswer(uuid);
     try {
       
       if (!uuid || !answer) {
@@ -139,6 +141,8 @@ export default function Desafio() {
 
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoadingAnswer('');
     }
   }
 
@@ -194,7 +198,11 @@ export default function Desafio() {
                         verifyAnswer(question.uuid, answers[question.uuid] || "")
                       }
                     >
-                      Enviar
+                      {loadingAnswer === question.uuid ? (
+                        <>Enviando...</>
+                      ) : (
+                        <>Enviar</>
+                      )}
                     </button>
 
                   </>
